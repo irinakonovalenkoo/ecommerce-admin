@@ -12,9 +12,13 @@ export async function POST(req: Request) {
 
     try {
         event = stripe.webhooks.constructEvent(body, signature, process.env.STRIPE_WEBHOOK_SECRET!)
-    } catch (error: any) {
+    } catch (error: unknown) {
+        if (error instanceof Error)  {
          return new NextResponse(`Webhook Error: ${error.message}`, { status: 400 });
     }
+    return new NextResponse("Webhook Error: Unknown error occurred", { status: 400 });
+    }
+    
 
     const session = event.data.object as Stripe.Checkout.Session;
     const address = session?.customer_details?.address;

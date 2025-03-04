@@ -52,6 +52,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
             router.refresh();
             toast.success("Store updated")
         } catch(error) {
+            console.log(error);
             toast.error("Something went wrong")
         } finally {
             setLoading(false);
@@ -66,6 +67,7 @@ export const SettingsForm: React.FC<SettingsFormProps> = ({
             router.push("/")
             toast.success("Store deleted")
         } catch(error) {
+            console.log(error);
             toast.error("Make sure you removed all products ")
         } finally {
             setLoading(false);

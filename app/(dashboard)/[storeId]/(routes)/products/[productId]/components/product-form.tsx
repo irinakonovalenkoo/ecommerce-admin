@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Category, Color, Image, Product, Size, Store } from "@prisma/client";
+import { Category, Color, Image, Product, Size } from "@prisma/client";
 import axios from "axios";
 import { Trash } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
@@ -90,6 +90,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             router.push(`/${params.storeId}/products`)
             toast.success(toastMessage);
         } catch(error) {
+            console.log(error);
             toast.error("Something went wrong.")
         } finally {
             setLoading(false);
@@ -104,6 +105,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             router.push(`/${params.storeId}/products`)
             toast.success("Product deleted.")
         } catch(error) {
+            console.log(error);
             toast.error("Something went wrong.")
         } finally {
             setLoading(false);

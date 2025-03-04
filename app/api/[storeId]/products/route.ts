@@ -107,7 +107,7 @@ try {
         return new NextResponse("Store id is required", { status: 400 })
     }
 
-    const whereClause: any = {
+    const whereClause: Record<string, unknown> = {
         storeId: params.storeId,
         isArchived: false,
     };

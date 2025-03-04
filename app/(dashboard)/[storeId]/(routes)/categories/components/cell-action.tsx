@@ -1,6 +1,6 @@
 "use client"
 
-import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel } from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel } from "@/components/ui/dropdown-menu";
 import { CategoryColumn } from "./columns";
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 import { Button } from "@/components/ui/button";
@@ -36,6 +36,7 @@ export const CellAction: React.FC<CellActionProps> = ({
             router.refresh();
             toast.success("Category deleted")
         } catch(error) {
+            console.log(error);
             toast.error("Make sure you removed all products using this category first.")
         } finally {
             setLoading(false);

@@ -1,6 +1,6 @@
 "use client"
 
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel } from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel } from "@/components/ui/dropdown-menu";
 import { SizeColumn } from "./columns";
 import { Button } from "@/components/ui/button";
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
@@ -35,6 +35,7 @@ export const CellAction: React.FC<CellActionProps> = ({
             router.refresh();
             toast.success("Size deleted.")
         } catch(error) {
+            console.log(error);
             toast.error("Make sure you removed all products using this size first.")
         } finally {
             setLoading(false);
