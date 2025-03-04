@@ -3,11 +3,13 @@ import { format } from "date-fns"
 import prismadb from "@/lib/prismadb";
 import { BillboardColumn } from "./components/columns";
 
-const BillboardsPage = async ( {
-    params
-} : {
-    params: { storeId: string}
-} ) => {
+interface BillboardsPageProps {
+    params: {
+        storeId: string;
+    };
+}
+
+const BillboardsPage = async ({ params }: BillboardsPageProps) => {
     const billboards = await prismadb.billboard.findMany({
         where: {
             storeId: params.storeId
