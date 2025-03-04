@@ -10,9 +10,8 @@ import { formatter } from "@/lib/utils";
 import { CreditCard, DollarSign, Link2, Package } from "lucide-react";
 import Link from "next/link";
 
-const DashboardPage = async ({ params }: { params: { storeId: string } }) => {
+const DashboardPage = async ({ params }: { params: Promise<{ storeId: string }> }) => {
   const { storeId } = await params;
-
   const totalRevenue = await getTotalRevenue(storeId);
   const salesCount = await getSalesCount(storeId);
   const stockCount = await getStockCount(storeId);
