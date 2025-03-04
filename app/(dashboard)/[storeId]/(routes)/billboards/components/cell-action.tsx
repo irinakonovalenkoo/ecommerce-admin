@@ -1,6 +1,6 @@
 "use client"
 
-import { DropdownMenu, DropdownMenuTrigger, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel } from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel } from "@/components/ui/dropdown-menu";
 import { BillboardColumn } from "./columns";
 import { Button } from "@/components/ui/button";
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
